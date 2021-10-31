@@ -1,18 +1,15 @@
-onload= function(){
+onload = function(){
     var btn=document.getElementById('btn');
-    var httpRequest=new XMLHttpRequest();
+    var xhr=new XMLHttpRequest();
+    
+    xhr.addEventListener("load",(event) =>{
+        let output = xhr.responseText;
+        this.alert(output);
+    });
 
     btn.addEventListener('click',function(event){
         var url='superheroes.php'
-        httpRequest.onreadystatechange=httprequest();
-        httpRequest.open('GET',url);
-        httpRequest.send();
+        xhr.open('GET',url);
+        xhr.send();
     });
-
-    function httprequest(){
-        if(httpRequest.readyState===XMLHttpRequest.DONE && httpRequest.status===200){
-            var response=httpRequest.responseText;
-            alert(response);
-        }
-    }
 }
