@@ -14,9 +14,12 @@
     </header>
     <div class="container">
         <h3>Search by Full Name or Alias</h3>
-        <input id="textbox" type="text" placeholder="e.g. Captain America or Steve Rogers">
-        <input id="btn" type="submit" value="Search">
-        <h2 id="result-tag"></h2>
+        <form autocomplete="off" action="#">
+            <input id="textbox" type="text" placeholder="e.g. Captain America or Steve Rogers">
+            <button id="btn" type="submit">Search</button>
+        </form>
+        <h2>RESULT</h2>
+        <hr>
         <div id="result"></div>
     </div>
 </body>

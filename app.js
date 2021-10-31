@@ -1,14 +1,16 @@
 onload = function(){
     var btn=document.getElementById('btn');
-    var xhr=new XMLHttpRequest();
-    
-    xhr.addEventListener("load",(event) =>{
+    var result = document.getElementById('result');
+    var text = document.getElementById('textbox');
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("load",() =>{
         let output = xhr.responseText;
-        this.alert(output);
+        result.innerHTML = output;
     });
 
-    btn.addEventListener('click',function(event){
-        var url='superheroes.php'
+    btn.addEventListener('click', () => {
+        var url='superheroes.php?query='+text.value;
         xhr.open('GET',url);
         xhr.send();
     });

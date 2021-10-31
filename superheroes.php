@@ -1,5 +1,7 @@
 <?php
 
+$text = $_GET['query'];
+
 $superheroes = [
   [
       "id" => 1,
@@ -63,10 +65,34 @@ $superheroes = [
   ], 
 ];
 
+function search($text,$array){
+    foreach($array as $object){
+        if(strtolower($object['name'])==strtolower($text) || strtolower($object['alias'])==strtolower($text)){
+            return $object;
+        }
+    }
+    return "no";
+}
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+<?php if($text==""){ ?>
+    <ul>
+    <?php foreach ($superheroes as $superhero): ?>
+    <li><?= $superhero['alias']; ?></li>
+    <?php endforeach; ?>
+    </ul>
+<?php } ?>
+
+<?php $data = search($text,$superheroes); ?>
+
+<?php if($data == "no" && $text != ""){ ?>
+    <h3 style="color:red">Superhero not found</h3>
+<?php }else{?>
+    <h3><?= $data['name'];?></h3>
+    <h4>A.K.A <?= $data['alias'];?></h4>
+    <p><?= $data['biography'];}?></h4>
+
+
+
+
+
