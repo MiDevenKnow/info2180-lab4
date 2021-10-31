@@ -88,8 +88,8 @@ function search($text,$array){
 <?php if($data == "no" && $text != ""){ ?>
     <h3 style="color:red">Superhero not found</h3>
 <?php }else{?>
-    <h3><?= $data['name'];?></h3>
-    <h4>A.K.A <?= $data['alias'];?></h4>
+    <h3><?= $data['alias'];?></h3>
+    <h4>A.K.A <?= $data['name'];?></h4>
     <p><?= $data['biography'];}?></h4>
 
 
