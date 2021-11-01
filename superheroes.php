@@ -1,6 +1,6 @@
 <?php
 
-$text = $_GET['query'];
+$text = htmlspecialchars($_GET['query'], ENT_QUOTES);
 
 $superheroes = [
   [
